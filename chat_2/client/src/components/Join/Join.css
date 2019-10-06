@@ -48,6 +48,7 @@ html, body {
       display: inline-block;
       border: none;
       width: 100%;
+      cursor: pointer;
   }
   
   .mt-20 {
