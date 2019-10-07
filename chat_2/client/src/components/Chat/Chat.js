@@ -39,6 +39,12 @@ const Chat = ({ location }) => {
 
     useEffect(() => {
         socket.on('message', (message) => {
+            var data = Date.now();
+            var date = new Date(data);
+            if(messages.length > 0){
+            (messages[messages.length - 1].user === message.user)?
+            message = {id: messages.length + 1, user:message.user, text:message.text, consecutive:true, date: date.getHours()+":"+date.getMinutes()}:
+            message = {id: messages.length + 1, user:message.user, text:message.text, consecutive:false, date: date.getHours()+":"+date.getMinutes()};}
             setMessages([...messages, message]);
         });
 
